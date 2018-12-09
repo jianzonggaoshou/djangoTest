@@ -26,5 +26,6 @@ urlpatterns = [
     path('env/', TemplateView.as_view(template_name="env/env.html")),
     path('service/', TemplateView.as_view(template_name="service/service.html")),
     path('env/getStaticUrl/', views.GetStaticUrl.as_view()),
-    path('service/getStaticUrl/', views.GetStaticUrl.as_view())
+    path('service/getStaticUrl/', views.GetStaticUrl.as_view()),
+    path('getform/<envId>/<envRecordTime>', views.getForm)
 ]

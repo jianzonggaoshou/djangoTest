@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>apply_form</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/apply_form.css">
+</head>
+<body>
+    <H1>零等待环境</H1>
+    <div id="form_show">
+        <table id="table_show" border="1">
+            <tr>
+                <th>订单详情</th>
+            </tr>
+            <tr>
+                <td>订单编号：</td>
+                <td>{{ id }}</td>
+            </tr>
+            <tr>
+                <td>申请人：</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>环境ID：</td>
+                <td>{{ envId }}</td>
+            </tr>
+            <tr>
+                <td>环境管理员：</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>用途：</td>
+                <td>{{ useFor }}</td>
+            </tr>
+            <tr>
+                <td>环境开始时间：</td>
+                <td>{{ startTime }}</td>
+            </tr>
+            <tr>
+                <td>环境结束时间：</td>
+                <td>{{ endTime }}</td>
+            </tr>
+            <tr>
+                <td>订单记录时间：</td>
+                <td>{{ envRecordTime }}</td>
+            </tr>
+            <tr>
+                <td>订单状态：</td>
+                <td>{{ status }}</td>
+            </tr>
+        </table>
+
+    </div>
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>申请人：</td>
+                    <td>
+                        <input type="text" id="envId" readonly="readonly" name="envId" value="{{ envId }}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>环境ID</td>
+                    <td>
+                        <input type="text" id="envId" readonly="readonly" name="envId" value="{{ envId }}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>用途：</td>
+                    <td>
+                        <input type="text" id="envId" readonly="readonly" name="envId" value="{{ envId }}">
+                    </td>
+                </tr>
+
+            </table>
+            <label for="envId">envId</label>
+            <input type="text" id="envId" readonly="readonly" name="envId" value="{{ envId }}">
+            <label for="isAgree">同意</label>
+            <input type="radio" id="isAgree" checked="checked" name="isAgree" value="isAgree">
+            <label for="notAgree">不同意</label>
+            <input type="radio" id="notAgree" name="isAgree" value="notAgree">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,5 +1,6 @@
 import logging
 from django.conf import settings
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth import login, authenticate
 from rest_framework.views import APIView
@@ -52,3 +53,35 @@ class GetStaticUrl(APIView):
             return Response(settings.LOGIN_REDIRECT_URL, 200)
 
 
+def getForm(request, envId, envRecordTime):
+
+    if request.method == "POST":
+        envId = request.POST.get("envId")
+        logging.warning(envId)
+        return HttpResponseRedirect('/index/')
+
+
+    logging.warning(envId)
+    logging.warning(envRecordTime)
+
+    id = "1"
+    envId = envId
+    envName = "中国sdasda3123"
+    useFor = "MT"
+    startTime = "2018-09-12_13:30:22"
+    endTime = "2018-09-12_14:30:22"
+    envRecordTime = envRecordTime
+    status = 2
+
+    content = {
+        'id': id,
+        'envId': envId,
+        'envName': envName,
+        'useFor': useFor,
+        'startTime': startTime,
+        'endTime': endTime,
+        'envRecordTime': envRecordTime,
+        'status': status
+    }
+
+    return render(request, "form/apply_form.html", content)
